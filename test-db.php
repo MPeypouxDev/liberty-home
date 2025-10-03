@@ -11,10 +11,11 @@ if ($conn) {
     $stmt = $conn->query("SELECT * FROM users");
     $users = $stmt->fetchAll();
 
-    echo "Nombres d'utilisateurs : " . count($users) . ;
+    echo "Nombres d'utilisateurs : " . count($users) . "<br>";
     foreach($users as $user) {
         echo "- {$user['prenom']} {$user['nom']} ({$user['email']})";
     }
 } else {
     echo "Erreur de connexion";
 }
+?>
