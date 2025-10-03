@@ -13,7 +13,7 @@ if ($conn) {
 
     echo "Nombres d'utilisateurs : " . count($users) . "<br>";
     foreach($users as $user) {
-        echo "- {$user['prenom']} {$user['nom']} ({$user['email']})";
+        echo "- {$user['firstname']} {$user['lastname']} ({$user['email']})";
     }
 } else {
     echo "Erreur de connexion";
