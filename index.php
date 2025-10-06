@@ -24,8 +24,9 @@ error_reporting(E_ALL);
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     
-    <!-- CSS compilé depuis SCSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/sass/style.sass">
+    <script src="assets/js/carousel.js"></script>
+    <script src="assets/js/interactions.js"></script>
     
     <!-- Fonts Google (optionnel) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
