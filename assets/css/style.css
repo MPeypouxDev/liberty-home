@@ -134,6 +134,18 @@ input {
 .auth-form .form-group .toggle-password:hover {
   color: #18534F;
 }
+.auth-form .form-group .forgot-password-link {
+  text-align: right;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+.auth-form .form-group .forgot-password-link a {
+  color: #6b7a8f;
+  font-size: 0.85rem;
+}
+.auth-form .form-group .forgot-password-link a:hover {
+  color: #18534F;
+}
 
 .btn-primary,
 .btn-secondary {
