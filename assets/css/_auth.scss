@@ -1,0 +1,200 @@
+.auth-container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: $spacing-xl $spacing-md;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: $spacing-xl;
+
+    h1 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: $text-primary;
+        margin-bottom: $spacing-sm;
+    }
+
+    p {
+        color: $text-secondary;
+        font-size: 0.95rem;
+    }
+}
+
+// Messages
+.success-message {
+    background: rgba($success-color, 0.15);
+    border: 1px solid $success-color;
+    border-radius: $radius-md;
+    padding: $spacing-md;
+    margin-bottom: $spacing-md;
+
+    p {
+        color: $success-color;
+        margin: 0;
+    }
+}
+
+.error-messages {
+    background: rgba($error-color, 0.15);
+    border: 1px solid $error-color;
+    border-radius: $radius-md;
+    padding: $spacing-md;
+    margin-bottom: $spacing-md;
+
+    .error {
+        color: $error-color;
+        margin: 0;
+        font-size: 0.9rem;
+
+        & + .error {
+            margin-top: $spacing-xs;
+        }
+    }
+}
+
+// Formulaire
+.auth-form {
+    .form-group {
+        margin-bottom: $spacing-md;
+        position: relative;
+
+        input {
+            width: 100%;
+            padding: $spacing-md;
+            background: $dark-card;
+            border: 2px solid transparent;
+            border-radius: $radius-md;
+            color: $text-primary;
+            font-size: 1rem;
+            transition: all $transition-mid;
+
+            &::placeholder {
+                color: $text-muted;
+            }
+
+            &::focus {
+                border-color: $primary-color;
+                background: lighten($dark-card, 3%);
+            }
+
+            &:invalid:not(:placeholder-shown) {
+                border-color: $error-color;
+            }
+        }
+
+        // Bouton afficher/masquer mot de passe
+        .toggle-password {
+            position: absolute;
+            right: $spacing-md;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            color: $text-muted;
+            padding: $spacing-xs;
+            font-size: 0.85rem;
+
+            &:hover {
+                color: $primary-color;
+            }
+        }
+    }
+}
+
+// Boutons
+.btn-primary,
+.btn-secondary {
+    width: 100%;
+    padding: $spacing-md;
+    border-radius: $radius-lg;
+    font-size: 1rem;
+    font-weight: 600;
+    display: block;
+    text-align: center;
+    transition: all $transition-mid;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, $primary-color, darken($primary-color, 10%));
+    color: white;
+    box-shadow: 0 4px 15px rgba($primary-color, 0.3);
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba($primary-color, 0.4);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+.btn-secondary {
+    background: $dark-card;
+    color: $text-primary;
+    border: 2px solid rgba($primary-color, 0.3);
+
+    &:hover {
+        border-color: $primary-color;
+        background: lighten($dark-card, 5%);
+    }
+}
+
+// Séparateur
+.divider {
+    text-align: center;
+    color: $text-muted;
+    margin: $spacing-lg 0;
+    position: relative;
+    font-size: 0.9rem;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        width: 40%;
+        height: 1px;
+        background: rgba($text-muted, 0.3);
+    }
+
+    &::before {
+        left: 0;
+    }
+
+    &::after {
+        right: 0;
+    }
+}
+
+// Footer
+.auth-footer {
+    text-align: center;
+    margin-top: $spacing-lg;
+    color: $text-secondary;
+    font-size: 0.9rem;
+
+    a {
+        color: $primary-color;
+        font-weight: 600;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+// Responsive
+@media (max-width: $mobile) {
+    .auth-container {
+        padding: $spacing-md;
+    }
+
+    .auth-header h1 {
+        font-size: 1.5rem;
+    }
+}
