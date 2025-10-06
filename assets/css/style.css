@@ -1,0 +1,216 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  background: #0a0e27;
+  color: #ffffff;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: #18534F;
+  transition: color 0.2s ease;
+}
+a:hover {
+  color: rgb(35.4392523364, 122.5607476636, 116.6542056075);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+input {
+  font-family: inherit;
+  border: none;
+  outline: none;
+}
+
+.auth-container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.auth-header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+.auth-header p {
+  color: #b8c5d6;
+  font-size: 0.95rem;
+}
+
+.success-message {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid #10b981;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.success-message p {
+  color: #10b981;
+  margin: 0;
+}
+
+.error-messages {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid #ef4444;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.error-messages .error {
+  color: #ef4444;
+  margin: 0;
+  font-size: 0.9rem;
+}
+.error-messages .error + .error {
+  margin-top: 0.5rem;
+}
+
+.auth-form .form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+.auth-form .form-group input {
+  width: 100%;
+  padding: 1.5rem;
+  background: #1a1f3a;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+.auth-form .form-group input::-moz-placeholder {
+  color: #6b7a8f;
+}
+.auth-form .form-group input::placeholder {
+  color: #6b7a8f;
+}
+.auth-form .form-group input::focus {
+  border-color: #18534F;
+  background: rgb(30.7357142857, 36.6464285714, 68.5642857143);
+}
+.auth-form .form-group input:invalid:not(:-moz-placeholder) {
+  border-color: #ef4444;
+}
+.auth-form .form-group input:invalid:not(:placeholder-shown) {
+  border-color: #ef4444;
+}
+.auth-form .form-group .toggle-password {
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  color: #6b7a8f;
+  padding: 0.5rem;
+  font-size: 0.85rem;
+}
+.auth-form .form-group .toggle-password:hover {
+  color: #18534F;
+}
+
+.btn-primary,
+.btn-secondary {
+  width: 100%;
+  padding: 1.5rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  display: block;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #18534F, rgb(12.5607476636, 43.4392523364, 41.3457943925));
+  color: white;
+  box-shadow: 0 4px 15px rgba(24, 83, 79, 0.3);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(24, 83, 79, 0.4);
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: #1a1f3a;
+  color: #ffffff;
+  border: 2px solid rgba(24, 83, 79, 0.3);
+}
+.btn-secondary:hover {
+  border-color: #18534F;
+  background: rgb(33.8928571429, 40.4107142857, 75.6071428571);
+}
+
+.divider {
+  text-align: center;
+  color: #6b7a8f;
+  margin: 2rem 0;
+  position: relative;
+  font-size: 0.9rem;
+}
+.divider::before, .divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: rgba(107, 122, 143, 0.3);
+}
+.divider::before {
+  left: 0;
+}
+.divider::after {
+  right: 0;
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 2rem;
+  color: #b8c5d6;
+  font-size: 0.9rem;
+}
+.auth-footer a {
+  color: #18534F;
+  font-weight: 600;
+}
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .auth-container {
+    padding: 1.5rem;
+  }
+  .auth-header h1 {
+    font-size: 1.5rem;
+  }
+}/*# sourceMappingURL=style.css.map */
