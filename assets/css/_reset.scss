@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    background: $dark-bg;
+    color: $text-primary;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: $primary-color;
+    transition: color $transition-fast;
+
+    &:hover {
+        color: lighten($primary-color, 10%);
+    }
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    transition: all $transition-fast;
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+input {
+    font-family: inherit;
+    border: none;
+    outline: none;
+}
