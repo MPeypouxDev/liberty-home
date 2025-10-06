@@ -1,3 +1,8 @@
+@use '../variables' as *;
+@use 'sass:color';
+
+
+
 .auth-container {
     max-width: 480px;
     margin: 0 auto;
@@ -17,6 +22,7 @@
         font-weight: 700;
         color: $text-primary;
         margin-bottom: $spacing-sm;
+        color: #000;
     }
 
     p {
@@ -79,7 +85,8 @@
 
             &::focus {
                 border-color: $primary-color;
-                background: lighten($dark-card, 3%);
+               background: color.scale($dark-card, $lightness: 3%);
+
             }
 
             &:invalid:not(:placeholder-shown) {
@@ -119,7 +126,11 @@
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, $primary-color, darken($primary-color, 10%));
+    background: linear-gradient(
+  135deg,
+  $primary-color,
+  color.scale($primary-color, $lightness: -10%)
+);
     color: white;
     box-shadow: 0 4px 15px rgba($primary-color, 0.3);
 
@@ -140,7 +151,12 @@
 
     &:hover {
         border-color: $primary-color;
-        background: lighten($dark-card, 5%);
+        background: linear-gradient(
+  135deg,
+  $primary-color,
+  color.scale($primary-color, $lightness: -10%)
+);
+
     }
 }
 

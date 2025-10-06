@@ -180,10 +180,10 @@ error_reporting(E_ALL);
          ======================================== -->
     
     <!-- Notre carousel -->
-    <script src="assets/js/carousel.js"></script>
+    <script src="/js/carousel.js"></script>
     
     <!-- Scripts des interactions (likes, commentaires, etc.) -->
-    <script src="assets/js/interactions.js"></script>
+    <script src="js/interactions.js"></script>
     
     <script>
         // Initialisation après chargement du DOM

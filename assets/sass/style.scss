@@ -1,0 +1,9 @@
+// use des variables
+@use 'variables' as *;
+
+// Reset CSS
+@use 'reset';
+
+// Composants
+@use 'components/auth';
+@use 'components/carousel';
