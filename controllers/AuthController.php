@@ -94,4 +94,32 @@ class AuthController {
         header('Location: ' . BASE_URL);
         exit();
     }
+
+    // Mot de passe oublié
+    public function forgotPassword($email) {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return ['type' => 'error', 'message' => 'Email invalide'];
+        }
+
+        if (!$this->userModel->emailExists($email)) {
+            return ['type' => 'success', 'message' => 'Si cet email existe, vous recevrez un lien de réinitialisation du mot de passe'];
+        }
+
+        // Générer le token
+        $token = bin2hex(random_bytes(32));
+        $expiry = date('Y-m-d H:i:s', strotime('+1 hour'));
+
+        // Sauvegarde du token
+        if ($this->userModel->saveResetToken($email, $token, $expiry)) {
+            // Créer le lien de réinitialisation
+            $resetLink = BASE_URL . "views/auth/reset-password.php?token=" . $token;
+
+            return [
+                'type' => 'success',
+                'message' => 'Un lien de réinitialisation a été généré. Pour le moment cliquez ici : ' . $resetLink
+            ];
+        }
+
+        return ['type' => 'error', 'message' => 'Erreur lors de la génération du lien'];
+    }
 }
