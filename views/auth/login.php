@@ -2,6 +2,25 @@
 require_once '../../config/config.php';
 require_once '../../controllers/AuthController.php';
 
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+echo "DEBUG: Script démarré<br>";
+
+require_once '../../config/config.php';
+echo "DEBUG: Config chargé<br>";
+
+require_once '../../controllers/AuthController.php';
+echo "DEBUG: Controller chargé<br>";
+
+$controller = new AuthController();
+echo "DEBUG: Controller instancié<br>";
+
+$errors = $controller->login();
+echo "DEBUG: Login appelé<br>";
+echo "DEBUG: Errors = ";
+var_dump($errors);
+
 $controller = new AuthController();
 $errors = $controller->login();
 ?>
@@ -41,10 +60,10 @@ $errors = $controller->login();
                     </div>
 
                     <div class="form-group">
-                        <input type="password" name="mot_de_passe" placeholder="Mot de passe" required>
+                        <input type="password" name="password" placeholder="Mot de passe" required>
                     </div>
 
-                    <button type=""submit class="btn-primary">Continuer</button>
+                    <button type="submit" class="btn-primary">Continuer</button>
                 </form>
 
                 <div class="divider">ou</div>

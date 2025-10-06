@@ -73,7 +73,7 @@ class AuthController {
                 $user = $this->userModel->login($_POST['email'], $_POST['password']);
 
                 if ($user) {
-                    $_SESSION['user_id'] = $user['id_user'];
+                    $_SESSION['user_id'] = $user['id'];
                     $_SESSION['user_name'] = $user['firstname'] . '' . $user['lastname'];
                     $_SESSION['is_host'] = $user['is_host'];
 
