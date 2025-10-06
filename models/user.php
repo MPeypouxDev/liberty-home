@@ -3,13 +3,13 @@ class User {
     private $conn;
     private $table = 'users';
 
-    public_function __construct($db) {
+    public function __construct($db) {
         $this->conn = $db;
     }
 
     // Inscription d'un nouvel utilisateur
     public function register($data) {
-        $query = "INSERT INTO" . $this->table . "
+        $query = "INSERT INTO " . $this->table . "
         (firstname, lastname, email, password, phone, birthdate, is_host)
         VALUES (:firstname, :lastname, :email, :password, :phone, :birthdate, :is_host)";
 
@@ -34,7 +34,7 @@ class User {
 
     // Connexion
     public function login($email, $password) {
-        $query = "SELECT * FROM" . $this->table . " WHERE email = :email AND active = 1 LIMIT 1";
+        $query = "SELECT * FROM " . $this->table . " WHERE email = :email LIMIT 1";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':email', $email);
         $stmt->execute();
@@ -50,7 +50,7 @@ class User {
 
     // Vérifier si un e-mail existe déjà
     public function emailExists($email) {
-        $query = "SELECT id_user FROM " . $this->table . "WHERE email = :email LIMIT 1";
+        $query = "SELECT id FROM " . $this->table . " WHERE email = :email LIMIT 1";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':email', $email);
         $stmt->execute();
@@ -59,7 +59,7 @@ class User {
 
     // Récupérer un utilisateur par ID
     public function getUserById($id) {
-        $query = "SELECT id_user FROM " . $this->table . " WHERE id_user = :id LIMIT 1";
+        $query = "SELECT id FROM " . $this->table . " WHERE id_user = :id LIMIT 1";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':id', $id);
         $stmt->execute();

@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../config/database.php';
-require_once __DIR__ . '/../modals/user.php';
+require_once __DIR__ . '/../models/user.php';
 
 class AuthController {
     private $db;
@@ -43,6 +43,7 @@ class AuthController {
                     'password' => $_POST['password'],
                     'phone' => htmlspecialchars($_POST['phone'] ?? null),
                     'birthdate' => $_POST['birthdate'] ?? null,
+                    'adress' => null,
                     'is_host' => true
                 ];
 
@@ -72,7 +73,7 @@ class AuthController {
                 $user = $this->userModel->login($_POST['email'], $_POST['password']);
 
                 if ($user) {
-                    $_SESSION['user_id'] = $user['id_user'];
+                    $_SESSION['user_id'] = $user['id'];
                     $_SESSION['user_name'] = $user['firstname'] . '' . $user['lastname'];
                     $_SESSION['is_host'] = $user['is_host'];
 
