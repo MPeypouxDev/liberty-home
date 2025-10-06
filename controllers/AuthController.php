@@ -37,12 +37,13 @@ class AuthController {
             // Si pas d'erreurs, on inscrit l'utilisateur
             if (empty($errors)) {
                 $data = [
-                    'nom' => htmlspecialchars($_POST['lastname']),
-                    'prenom' => htmlspecialchars($_POST['firstname']),
+                    'lastname' => htmlspecialchars($_POST['lastname']),
+                    'firstname' => htmlspecialchars($_POST['firstname']),
                     'email' => htmlspecialchars($_POST['email']),
-                    'mot_de_passe' => $_POST['password'],
-                    'telephone' => htmlspecialchars($_POST['phone'] ?? null),
-                    'date_naissance' => $_POST['birthdate'] ?? null,
+                    'password' => $_POST['password'],
+                    'phone' => htmlspecialchars($_POST['phone'] ?? null),
+                    'birthdate' => $_POST['birthdate'] ?? null,
+                    'adress' => null,
                     'is_host' => true
                 ];
 
