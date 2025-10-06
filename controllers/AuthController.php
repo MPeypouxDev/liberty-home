@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../config/database.php';
-require_once __DIR__ . '/../modals/user.php';
+require_once __DIR__ . '/../models/user.php';
 
 class AuthController {
     private $db;
@@ -37,12 +37,12 @@ class AuthController {
             // Si pas d'erreurs, on inscrit l'utilisateur
             if (empty($errors)) {
                 $data = [
-                    'lastname' => htmlspecialchars($_POST['lastname']),
-                    'firstname' => htmlspecialchars($_POST['firstname']),
+                    'nom' => htmlspecialchars($_POST['lastname']),
+                    'prenom' => htmlspecialchars($_POST['firstname']),
                     'email' => htmlspecialchars($_POST['email']),
-                    'password' => $_POST['password'],
-                    'phone' => htmlspecialchars($_POST['phone'] ?? null),
-                    'birthdate' => $_POST['birthdate'] ?? null,
+                    'mot_de_passe' => $_POST['password'],
+                    'telephone' => htmlspecialchars($_POST['phone'] ?? null),
+                    'date_naissance' => $_POST['birthdate'] ?? null,
                     'is_host' => true
                 ];
 
