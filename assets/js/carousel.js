@@ -1,26 +1,28 @@
-console.log('Chargement de carousel.js...');
+console.log('Chargement de carousel');
 
 class PropertyCarousel {
     constructor() {
         console.log("Le carousel se prepare...");
         this.container = document.querySelector('.carousel-container');
         if (!this.container) {
-            console.error("Pas de .carousel-container trouve !");
+            console.error("Pas de carousel-container trouve !");
             return;
         }
+
         console.log("Conteneur trouve :", this.container);
         this.cards = document.querySelectorAll('.property-card');
         console.log(this.cards.length + " cartes trouvees");
         this.currentIndex = 0;
         this.init();
     }
+
     init() {
         console.log("Initialisation du carousel...");
         this.updateCounter();
         console.log("Carousel pret !");
     }
     updateCounter() {
-        const counter = document.querySelector('.carousel-counter');
+        const counter = document.querySelector('carousel-counter');
         if (counter) {
             const current = this.currentIndex + 1;
             const total = this.cards.length;
@@ -37,4 +39,4 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log("Tout est pret !");
 });
 
-console.log('Fichier carousel.js charge completement');
+console.log('Fichier carousel charge completement');
