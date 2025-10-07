@@ -74,12 +74,55 @@ class User {
         $deleteStmt->bindParam(':email', $email);
         $deleteStmt->execute();
 
-        Insertion du nouveau token
-        $query = "INSERT INTO password_resets (email, token, expiry) VALUES (:email, token, expiry)";
+        // Insertion du nouveau token
+        $query = "INSERT INTO password_resets (email, token, expiry) VALUES (:email, :token, :expiry)";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':token', $token);
         $stmt->bindParam(':expiry', $expiry);
         return $stmt->execute();
+    }
+
+    // Vérification du token
+    public function verifyResetToken($token) {
+        $query = "SELECT email FROM password_resets WHERE token = :token AND expiry > NOW() LIMIT 1";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':token', $token);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            return $stmt->fetch();
+        }
+        return false;
+    }
+
+    // Réinitialiser le mot de passe
+    public function resetPassword($token, $newPassword) {
+        $tokenData = $this->verifyResetToken($token);
+
+        if (!$tokenData) {
+            return false;
+        }
+
+        // Hasher le nouveau mot de passe
+        $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+
+        // Mettre à jour le mot de passe
+        $query = "UPDATE" . $this->table . " SET password = :password WHERE email = :email";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':password', $hashedPassword);
+        $stmt->bindParam(':email', $tokenData['email']);
+
+        if ($stmt->execute()) {
+            // Suppression du token utilisé
+            $deleteQuery = "DELETE FROM password_resets WHERE token = :token";
+            $deleteStmt = $this->conn->prepare($deleteQuery);
+            $deleteStmt->bindParam(':token', $token);
+            $deleteStmt->execute();
+
+            return true;
+        }
+
+        return false;
     }
 }
