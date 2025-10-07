@@ -1,8 +1,8 @@
 // Import des variables
-@import '/assets/css/variables';
+@import '_variables';
 
 // Reset CSS
-@import '/assets/css/reset';
+@import '_reset';
 
 // Composants
-@import '/assets/css/auth';
+@import '_auth';
