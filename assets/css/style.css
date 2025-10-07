@@ -105,6 +105,12 @@ input {
   font-size: 1rem;
   transition: all 0.3s ease;
 }
+<<<<<<< HEAD
+=======
+.auth-form .form-group input::-moz-placeholder {
+  color: #6b7a8f;
+}
+>>>>>>> origin/main
 .auth-form .form-group input::placeholder {
   color: #6b7a8f;
 }
@@ -112,6 +118,12 @@ input {
   border-color: #18534F;
   background: rgb(30.7357142857, 36.6464285714, 68.5642857143);
 }
+<<<<<<< HEAD
+=======
+.auth-form .form-group input:invalid:not(:-moz-placeholder) {
+  border-color: #ef4444;
+}
+>>>>>>> origin/main
 .auth-form .form-group input:invalid:not(:placeholder-shown) {
   border-color: #ef4444;
 }
@@ -128,6 +140,21 @@ input {
 .auth-form .form-group .toggle-password:hover {
   color: #18534F;
 }
+<<<<<<< HEAD
+=======
+.auth-form .form-group .forgot-password-link {
+  text-align: right;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+.auth-form .form-group .forgot-password-link a {
+  color: #6b7a8f;
+  font-size: 0.85rem;
+}
+.auth-form .form-group .forgot-password-link a:hover {
+  color: #18534F;
+}
+>>>>>>> origin/main
 
 .btn-primary,
 .btn-secondary {
@@ -207,6 +234,10 @@ input {
   .auth-header h1 {
     font-size: 1.5rem;
   }
+<<<<<<< HEAD
 }
 
 /*# sourceMappingURL=style.css.map */
+=======
+}/*# sourceMappingURL=style.css.map */
+>>>>>>> origin/main
