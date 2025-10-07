@@ -101,13 +101,13 @@ class AuthController {
             return ['type' => 'error', 'message' => 'Email invalide'];
         }
 
-        if (!this->userModel->emailExists($email)) {
+        if (!$this->userModel->emailExists($email)) {
             return ['type' => 'success', 'message' => 'Si cet email existe, vous recevrez un lien de réinitialisation'];
         }
 
         // Générer un token unique
         $token = bin2hex(random_bytes(32));
-        $expiry = date('Y-m-d H:i:s', strotime('+1 hour'));
+        $expiry = date('Y-m-d H:i:s', strtotime('+1 hour'));
 
         // Sauvegarder le token en BDD
         if ($this->userModel->saveResetToken($email, $token, $expiry)) {
