@@ -44,6 +44,10 @@ $errors = $controller->login();
                         <input type="password" name="password" placeholder="Mot de passe" required>
                     </div>
 
+                    <div class="forgot-password-link">
+                        <a href="forgot-password.php">Mot de passe oublié ?</a>
+                    </div>
+
                     <button type="submit" class="btn-primary">Continuer</button>
                 </form>
 

@@ -65,4 +65,21 @@ class User {
         $stmt->execute();
         return $stmt->fetch();
     }
+
+    // Sauvegarder le token
+    public function saveResetToken($email, $token, $expiry) {
+        // Suppression des éventuels token précédents
+        $deleteQuery = "DELETE FROM password_resets WHERE email = :email";
+        $deleteStmt = $this->conn->prepare($deleteQuery);
+        $deleteStmt->bindParam(':email', $email);
+        $deleteStmt->execute();
+
+        Insertion du nouveau token
+        $query = "INSERT INTO password_resets (email, token, expiry) VALUES (:email, token, expiry)";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':token', $token);
+        $stmt->bindParam(':expiry', $expiry);
+        return $stmt->execute();
+    }
 }
