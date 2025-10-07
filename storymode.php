@@ -153,9 +153,6 @@ error_reporting(E_ALL);
          SCRIPTS JAVASCRIPT
          ======================================== -->
     
-    <!-- Notre carousel -->
-    <script src="assets/js/carousel.js"></script>
-    
     <!-- Scripts des interactions (likes, commentaires, etc.) -->
     <script src="assets/js/interactions.js"></script>
     
