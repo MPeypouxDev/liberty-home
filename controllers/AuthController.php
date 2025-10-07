@@ -94,4 +94,55 @@ class AuthController {
         header('Location: ' . BASE_URL);
         exit();
     }
+
+    // Mot de passe oublié
+    public function forgotPassword($email) {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return ['type' => 'error', 'message' => 'Email invalide'];
+        }
+
+        if (!this->userModel->emailExists($email)) {
+            return ['type' => 'success', 'message' => 'Si cet email existe, vous recevrez un lien de réinitialisation'];
+        }
+
+        // Générer un token unique
+        $token = bin2hex(random_bytes(32));
+        $expiry = date('Y-m-d H:i:s', strotime('+1 hour'));
+
+        // Sauvegarder le token en BDD
+        if ($this->userModel->saveResetToken($email, $token, $expiry)) {
+            // Créer le lien de réinitialisation
+            $resetLink = BASE_URL . "views/auth/reset-password.php?token=" . $token;
+
+            return [
+                'type' => 'success',
+                'message' => 'Un lien de réinitialisation a été généré. Pour le moment en développement, le voici : ' . $resetLink
+            ];
+        }
+
+        return ['type' => 'error', 'message' => 'Erreur lors de la génération du lien'];
+    }
+
+    // Réinitialiser le mot de passe après validation
+    public function resetPassword($token, $password, $passwordConfirm) {
+        // Validation
+        if (empty($token) || empty($password) || empty($passwordConfirm)) {
+            return ['type' => 'error', 'message' => 'Tous les champs sont requis'];
+        }
+
+        if (strlen($password) < 6) {
+            return ['type' => 'error', 'message' => 'Le mot de passe doit contenir au moins 6 caractères'];
+        }
+
+        if ($password !== $passwordConfirm) {
+            return ['type' => 'error', 'message' => 'Les mots de passe ne correspondent pas'];
+        }
+
+        // Réinitialiser le mot de passe
+        if ($this->userModel->resetPassword($token, $password)) {
+            return ['type' => 'success', 'message' => 'Votre mot de passe a été réinitialisé avec succès. Redirection vers la connexion...'];
+        }
+
+        return ['type' => 'error', 'message' => 'Le lien de réinitialisation est invalide ou a expiré'];
+    }
 }
