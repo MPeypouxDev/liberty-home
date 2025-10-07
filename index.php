@@ -38,7 +38,6 @@ error_reporting(E_ALL);
          ======================================== -->
     <header class="app-header">
         <div class="logo">
-            <img src="assets\css/images/logo_liberty_home.png">
             <h1>Liberty Home</h1>
         </div>
         
