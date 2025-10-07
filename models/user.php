@@ -108,7 +108,7 @@ class User {
         $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
 
         // Mettre à jour le mot de passe
-        $query = "UPDATE" . $this->table . " SET password = :password WHERE email = :email";
+        $query = "UPDATE " . $this->table . " SET password = :password WHERE email = :email";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':password', $hashedPassword);
         $stmt->bindParam(':email', $tokenData['email']);
