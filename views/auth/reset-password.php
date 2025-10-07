@@ -41,6 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
 
         <?php if ($message): ?>
+            <div class="<?= $messageType === 'success' ? 'success-message' : 'error-messages' ?>">
+                <p class="<?= $messageType === 'error' ? 'error' : '' ?>"><?= htmlspecialchars($message) ?></p>
+            </div>
+        <?php endif; ?>
 
         <?php if ($messageType !== 'success'): ?>
             <form method="POST" action="" class="auth-form">
