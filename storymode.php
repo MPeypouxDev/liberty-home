@@ -25,7 +25,7 @@ error_reporting(E_ALL);
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     
     <!-- CSS compilé depuis SCSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.scss">
     
     <!-- Fonts Google (optionnel) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -197,6 +197,7 @@ error_reporting(E_ALL);
             };
         });
     </script>
+    <script src="js/carousel.js"></script>
 
 </body>
 </html>
