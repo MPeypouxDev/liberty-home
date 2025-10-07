@@ -197,7 +197,7 @@ error_reporting(E_ALL);
             };
         });
     </script>
-    
+    <script src="js/carousel.js"></script>
 
 </body>
 </html>
