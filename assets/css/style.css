@@ -105,18 +105,12 @@ input {
   font-size: 1rem;
   transition: all 0.3s ease;
 }
-.auth-form .form-group input::-moz-placeholder {
-  color: #6b7a8f;
-}
 .auth-form .form-group input::placeholder {
   color: #6b7a8f;
 }
 .auth-form .form-group input::focus {
   border-color: #18534F;
   background: rgb(30.7357142857, 36.6464285714, 68.5642857143);
-}
-.auth-form .form-group input:invalid:not(:-moz-placeholder) {
-  border-color: #ef4444;
 }
 .auth-form .form-group input:invalid:not(:placeholder-shown) {
   border-color: #ef4444;
@@ -225,4 +219,236 @@ input {
   .auth-header h1 {
     font-size: 1.5rem;
   }
-}/*# sourceMappingURL=style.css.map */
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", Tahoma, sans-serif;
+  overflow: hidden;
+}
+
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: #18534F;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.app-header .logo h1 {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 0;
+}
+
+.main-nav {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-filter,
+.btn-profile {
+  padding: 8px 16px;
+  border: 2px solid #000000;
+  background: white;
+  color: #000000;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+
+.btn-filter:hover,
+.btn-profile:hover {
+  background: #000000;
+  color: white;
+}
+
+.carousel-container {
+  margin-top: 60px;
+  width: 100vw;
+  height: calc(100vh - 60px);
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  display: flex;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+.property-card {
+  min-width: 100vw;
+  width: 100vw;
+  height: 100%;
+  scroll-snap-align: start;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+.property-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.property-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.property-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+  padding: 2rem;
+  color: white;
+  z-index: 10;
+}
+
+.property-info h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.property-info .location {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+  opacity: 0.9;
+}
+
+.property-info .price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #4ADE80;
+  margin: 0.5rem 0;
+}
+
+.property-info .landlord {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: 0.5rem;
+}
+
+.property-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-action {
+  padding: 10px 20px;
+  border: 2px solid white;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-action:hover {
+  background: white;
+  color: #333;
+}
+
+.carousel-counter {
+  position: fixed;
+  top: 80px;
+  right: 2rem;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.carousel-progress-bar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  z-index: 999;
+}
+
+.carousel-progress {
+  height: 100%;
+  background: #000000;
+  width: 25%;
+  transition: width 0.3s ease;
+}
+
+.carousel-indicators {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 1000;
+}
+
+.indicator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s;
+}
+
+.indicator-dot.active {
+  width: 24px;
+  border-radius: 4px;
+  background: white;
+}
+
+@media (max-width: 768px) {
+  .property-info h2 {
+    font-size: 1.4rem;
+  }
+  .property-info .price {
+    font-size: 1.2rem;
+  }
+  .property-overlay {
+    padding: 1.5rem;
+  }
+  .btn-action {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+  .main-nav {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
