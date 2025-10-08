@@ -1,11 +1,11 @@
 // Import des variables
-@import '_variables';
+@use '_variables';
 
 // Reset CSS
-@import '_reset';
+@use '_reset';
 
 // Composants
-@import '_auth';
+@use '_auth';
 
 
 * {
@@ -36,9 +36,26 @@ body {
 }
 
 .app-header .logo h1 {
+ 
   font-size: 1.5rem;
-  color: #ffffff;
+  color: #ff0404;
   margin: 0;
+  
+}
+
+.app-header .logo img {
+  height: 55px;
+  width: 80px;
+  border: 1px solid #D6955B;
+  border-radius: 10px;
+  
+}
+
+.logo {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+
 }
 
 .main-nav {
@@ -115,6 +132,9 @@ body {
 }
 
 .property-overlay {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items:normal;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -130,6 +150,15 @@ body {
   padding: 2rem;
   color: white;
   z-index: 10;
+}
+
+.property-info{
+  display: flex;
+  justify-content:flex-start;
+  flex-direction:column;
+  height: 400px;
+  width: 80%;
+ 
 }
 
 .property-info h2 {
@@ -149,19 +178,31 @@ body {
   font-weight: 700;
   color: #4ADE80;
   margin: 0.5rem 0;
+  position:relative;
+
 }
 
 .property-info .landlord {
   font-size: 0.9rem;
   opacity: 0.8;
   margin-top: 0.5rem;
+  position: relative;
 }
+
+.property-info .price .landlord{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
 
 .property-actions {
   display: flex;
   gap: 10px;
   margin-top: 1.5rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: end;
+  width: 100%;
+ 
 }
 
 .btn-action {

@@ -25,7 +25,7 @@ error_reporting(E_ALL);
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     
     <!-- CSS compilé depuis SCSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="sass/style.scss">
     
     <!-- Fonts Google (optionnel) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,6 +38,7 @@ error_reporting(E_ALL);
          ======================================== -->
     <header class="app-header">
         <div class="logo">
+            <img src = "assets/images/logo_liberty_home.png">
             <h1>Liberty Home</h1>
         </div>
         
