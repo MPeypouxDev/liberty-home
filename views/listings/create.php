@@ -2,7 +2,7 @@
 require_once '../../config/config.php';
 require_once '../../controllers/ListingController.php';
 
-$controller = newListingController();
+$controller = new ListingController();
 $errors = $controller->create();
 ?>
 

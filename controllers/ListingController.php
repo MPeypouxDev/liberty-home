@@ -152,7 +152,7 @@ class ListingController {
             return false;
         }
 
-        return $this->listingModel->delete($id), $_SESSION['user_id'];
+        return $this->listingModel->delete($id, $_SESSION['user_id']);
     }
 
     // Activer ou désactiver une annonce
