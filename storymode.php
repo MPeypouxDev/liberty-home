@@ -39,7 +39,7 @@ error_reporting(E_ALL);
     </header>
 
     <main class="carousel-container" id="mainCarousel">
-        
+
         <?php
         
         $properties = [
@@ -87,7 +87,7 @@ error_reporting(E_ALL);
         <article class="property-card" 
                  data-property-id="<?php echo $property['id']; ?>"
                  data-price="<?php echo $property['price']; ?>">
-            
+
             <div class="property-image">
                 <img src="<?php echo htmlspecialchars($property['image']); ?>" 
                      alt="<?php echo htmlspecialchars($property['title']); ?>"
