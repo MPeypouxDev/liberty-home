@@ -1,7 +1,17 @@
 <?php
 
+<<<<<<< HEAD
 session_start();
 
+=======
+// Démarrer la session (pour gérer les utilisateurs connectés)
+session_start();
+
+// Charger la configuration (à créer plus tard)
+// require_once 'config/database.php';
+
+// Afficher les erreurs en développement (à retirer en production)
+>>>>>>> origin/marco-branch
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
@@ -16,31 +26,66 @@ error_reporting(E_ALL);
     
     <title>Liberty Home</title>
     
+<<<<<<< HEAD
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
    
     <link rel="stylesheet" href="assets/css/style.scss">
     
+=======
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <!-- CSS compilé depuis SCSS -->
+    <link rel="stylesheet" href="assets/css/style.scss">
+    
+    <!-- Fonts Google (optionnel) -->
+>>>>>>> origin/marco-branch
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
+<<<<<<< HEAD
     <header class="app-header">
         <div class="logo">
             <img src="assets\css/images/logo_liberty_home.png">
+=======
+    <!-- ========================================
+         HEADER / NAVIGATION
+         ======================================== -->
+    <header class="app-header">
+        <div class="logo">
+>>>>>>> origin/marco-branch
             <h1>Liberty Home</h1>
         </div>
         
         <nav class="main-nav">
+<<<<<<< HEAD
         
+=======
+            <!-- Boutons de navigation (cachés pour l'instant sur mobile) -->
+>>>>>>> origin/marco-branch
             <button class="btn-filter">🔍 Filtres</button>
             <button class="btn-profile">👤 Profil</button>
         </nav>
     </header>
 
+<<<<<<< HEAD
     <main class="carousel-container" id="mainCarousel">
 
         <?php
+=======
+    <!-- ========================================
+         CAROUSEL PRINCIPAL
+         ======================================== -->
+    <main class="carousel-container" id="mainCarousel">
+        
+        <?php
+        // ========================================
+        // DONNÉES DE TEST (temporaire)
+        // Plus tard, on récupérera ça depuis MySQL
+        // ========================================
+>>>>>>> origin/marco-branch
         
         $properties = [
             [
@@ -81,6 +126,7 @@ error_reporting(E_ALL);
             ]
         ];
         
+<<<<<<< HEAD
         foreach ($properties as $property) :
         ?>
     
@@ -88,14 +134,36 @@ error_reporting(E_ALL);
                  data-property-id="<?php echo $property['id']; ?>"
                  data-price="<?php echo $property['price']; ?>">
 
+=======
+        // ========================================
+        // BOUCLE : Générer une carte par annonce
+        // ========================================
+        
+        foreach ($properties as $property) :
+        ?>
+        
+        <!-- CARTE D'UNE ANNONCE -->
+        <article class="property-card" 
+                 data-property-id="<?php echo $property['id']; ?>"
+                 data-price="<?php echo $property['price']; ?>">
+            
+            <!-- IMAGE DE FOND -->
+>>>>>>> origin/marco-branch
             <div class="property-image">
                 <img src="<?php echo htmlspecialchars($property['image']); ?>" 
                      alt="<?php echo htmlspecialchars($property['title']); ?>"
                      loading="lazy">
             </div>
             
+<<<<<<< HEAD
             <div class="property-overlay">
                 
+=======
+            <!-- OVERLAY AVEC INFORMATIONS -->
+            <div class="property-overlay">
+                
+                <!-- Informations principales -->
+>>>>>>> origin/marco-branch
                 <div class="property-info">
                     <h2><?php echo htmlspecialchars($property['title']); ?></h2>
                     
@@ -111,6 +179,10 @@ error_reporting(E_ALL);
                     </p>
                 </div>
                 
+<<<<<<< HEAD
+=======
+                <!-- Boutons d'action -->
+>>>>>>> origin/marco-branch
                 <div class="property-actions">
                     <button class="btn-action btn-like" 
                             data-action="like" 
@@ -153,6 +225,12 @@ error_reporting(E_ALL);
          SCRIPTS JAVASCRIPT
          ======================================== -->
     
+<<<<<<< HEAD
+=======
+    <!-- Notre carousel -->
+    <script src="js/carousel.js"></script>
+    
+>>>>>>> origin/marco-branch
     <!-- Scripts des interactions (likes, commentaires, etc.) -->
     <script src="assets/js/interactions.js"></script>
     
